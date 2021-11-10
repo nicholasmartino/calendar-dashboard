@@ -72,6 +72,7 @@ app.layout = dbc.Container(style={"height": "100vh"}, children=[
 @app.callback(
     Output(component_id='stacked_bars', component_property='figure'),
     Output(component_id='sunburst_chart', component_property='figure'),
+    Output(component_id='calendar_rank', component_property='figure'),
     [Input(component_id='agg_by', component_property='value')]
 )
 def update_output_div(agg_by):
@@ -90,8 +91,10 @@ def update_output_div(agg_by):
     bars.update_traces(overwrite=False, marker={"opacity": 0.4})
 
     #
-    px.bar(data_canada, x='year', y='pop')
-    return bars, sun
+    rank = px.bar(events.groupby('Calendar', as_index=False).sum().sort_values('Duration'),
+                  x='Duration', y='Calendar', color='Calendar', template=chart_template, color_discrete_map=COLORS)
+    rank.update_layout(showlegend=False)
+    return bars, sun, rank
 
 
 if __name__ == '__main__':
