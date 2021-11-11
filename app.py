@@ -57,7 +57,7 @@ text_style = {'height': '20%', 'text-align': 'left', 'position': 'relative', 'to
 
 app = dash.Dash(external_stylesheets=[dbc.themes.YETI])
 app.layout = \
-    html.Div(style={"height": "100vh"}, children=[
+    html.Div(style={"height": "98vh", "width": "98vw"}, children=[
         dbc.Row(class_name='h-50', children=[
             html.Div(style={"height": "5vh"}),
             dbc.Col(width=9, style={"height": "100%"}, children=[
@@ -72,7 +72,7 @@ app.layout = \
             dbc.Col(width=5, style={"height": "80%"}, children=[
                 dcc.Graph(id='radar_chart', style={"height": "100%"})
             ]),
-            dbc.Col(width=5, style={"height": "80%"}, children=[
+            dbc.Col(width=4, style={"height": "80%"}, children=[
                 dcc.Graph(id='calendar_rank', style={"height": "100%"}),
             ]),
             dbc.Col(width=2, style={"height": "80%"}, children=[
@@ -111,7 +111,8 @@ def update_output_div(agg_by):
     sun.update_traces(insidetextorientation='horizontal')
     pie = px.pie(events, names='Calendar', values='Duration', color='Calendar',
                  template=chart_template, color_discrete_map=COLORS)
-    pie.update_layout(showlegend=False, annotations=[dict(text=total, x=0.5, y=0.5, font_size=30, showarrow=False)])
+    pie.update_layout(showlegend=False, annotations=[dict(text=f"<b>{total}</b>", x=0.5, y=0.5, font_size=50,
+                                                          font_family="Roboto", font_color="gray", showarrow=False)])
     pie.update_traces(hole=0.8)
 
     # Stacked bar chart
