@@ -37,7 +37,7 @@ def get_events_from_calendars(calendars):
     for name in calendars.keys():
         df_cal = get_events_ics(
             url=calendars[name],
-            start=(2021, 1, 1),
+            start=(2021, 9, 1),
             end=(2021, 12, 31)
         )
         if df_cal is not None:
