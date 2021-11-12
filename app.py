@@ -12,7 +12,7 @@ from Calendar import *
 CALENDARS = {
     'PhD': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/d13b4415-57b7-4152-89ef-6f707880cccd/cid-59D903F0133C1A64/calendar.ics',
     'MITACS': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/de8b5359-dacc-4030-a70e-f8cb020cdc7a/cid-59D903F0133C1A64/calendar.ics',
-    'Green Network Planning': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/9121c110-4043-49ef-a0ce-3018a3670c1f/cid-59D903F0133C1A64/calendar.ics',
+    'TA': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/9121c110-4043-49ef-a0ce-3018a3670c1f/cid-59D903F0133C1A64/calendar.ics',
     'UPAL': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/666b5775-d4a8-48f8-bb5b-b08bdfa9c2cc/cid-59D903F0133C1A64/calendar.ics',
     'elementslab': 'https://outlook.live.com/owa/calendar/8fd2720a-5774-41df-90e9-fa8ff7cc3cbf/1b14feb2-a841-4f74-ae70-496436c6da96/cid-59D903F0133C1A64/calendar.ics',
     'Portfolio': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/491714b4-dc60-421d-9cf7-cb2f1eaf2b0f/cid-59D903F0133C1A64/calendar.ics',
@@ -20,7 +20,7 @@ CALENDARS = {
 COLORS = {
     'PhD': 'cadetblue',
     'MITACS': 'teal',
-    'Green Network Planning': 'mediumseagreen',
+    'TA': 'mediumseagreen',
     'UPAL': 'Lime',
     'elementslab': 'gold',
     'Portfolio': 'mediumpurple',
@@ -29,7 +29,7 @@ THEMES = {
     'PhD': 'Research',
     'MITACS': 'Research',
     'elementslab': 'Research',
-    'Green Network Planning': 'Teaching',
+    'TA': 'Teaching',
     'UPAL': '',
     'Portfolio': ''
 }
@@ -37,7 +37,7 @@ GOAL = {
     'PhD': 8,
     'MITACS': 8,
     'elementslab': 10,
-    'Green Network Planning': 5,
+    'TA': 5,
     'UPAL': 1,
     'Portfolio': 2
 }
@@ -48,14 +48,14 @@ chart_template = dict(
         font=dict(family='Roboto Light'),
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
-        margin=dict(l=40, r=10, t=10, b=35),
+        margin=dict(l=50, r=10, t=10, b=35),
         legend=dict(orientation="h"),
     ),
 )
 text_style = {'height': '20%', 'text-align': 'left', 'position': 'relative', 'top': '20%',
               'font-size': 'x-large', 'font-weight': 'bold', 'font-family': 'Roboto', 'color': 'gray'}
 agg_op = [{'label': 'Day', 'value': 'd'}, {'label': 'Week', 'value': 'w'}, {'label': 'Month', 'value': 'm'}]
-ts_op = [{'label': 'Quarter', 'value': 'q'}, {'label': 'YTD', 'value': 'ytd'}]
+ts_op = [{'label': l, 'value': v} for l, v in {'YTD': 'ytd', 'Quarter': 'q', '7 Days': '7d', '30 Days': '30d'}.items()]
 
 app = dash.Dash(external_stylesheets=[dbc.themes.YETI])
 app.layout = \
@@ -78,16 +78,16 @@ app.layout = \
                 dcc.Graph(id='calendar_rank', style={"height": "100%"}),
             ]),
             dbc.Col(width=3, style={"height": "80%"}, children=[
-                dbc.Row(style={'height': '90%'}, children=[
-                    dcc.Graph(id='funnel_chart'),
-                ]),
                 dbc.Row([
                     dbc.Col([
-                        dcc.Dropdown(id='time_scale', options=ts_op, value='q'),
+                        dcc.Dropdown(id='time_scale', options=ts_op, value='ytd'),
                     ]),
                     dbc.Col([
                         dcc.Dropdown(id='agg_by', options=agg_op, value='w'),
                     ]),
+                ]),
+                dbc.Row(style={'height': '90%'}, children=[
+                    dcc.Graph(id='funnel_chart'),
                 ]),
             ])
         ])
@@ -105,9 +105,17 @@ app.layout = \
 )
 def update_output_div(agg_by, ts):
 
-    if ts == 'Quarter':
+    if ts == 'q':
         start = (datetime.datetime.now().year, 9, 1)
         end = (datetime.datetime.now().year, 12, 31)
+    elif ts == '7d':
+        start = datetime.datetime.now().date() - datetime.timedelta(7)
+        start = (start.year, start.month, start.day)
+        end = (datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day)
+    elif ts == '30d':
+        start = datetime.datetime.now().date() - datetime.timedelta(30)
+        start = (start.year, start.month, start.day)
+        end = (datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day)
     else:
         start = (datetime.datetime.now().year, 1, 1)
         end = (datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day)
@@ -154,20 +162,21 @@ def update_output_div(agg_by, ts):
     # Box plot
     box_df = events_raw.groupby(['Week', 'Calendar'], as_index=False).agg({'Week': 'mean', 'Duration': 'sum'})
     box_df['Goal'] = box_df['Calendar'].replace(GOAL)
-    box_df['Change'] = (box_df['Duration'] - box_df['Goal'])/box_df['Goal']
+    box_df['Change'] = (box_df['Duration']/box_df['Goal']) - 1
     box = px.box(box_df, x='Calendar', y='Change', color='Calendar',
                  template=chart_template, color_discrete_map=COLORS)
     box.update_layout(showlegend=False)
 
     # Funnel chart
-    d_average = int(events['Duration'].sum()/len(events_raw['Date'].unique()))
-    w_average = int(events['Duration'].sum()/len(events_raw['Week'].unique()))
-    m_average = int(events['Duration'].sum()/len(events_raw['Month'].unique()))
-    data = dict(
+    d_average = events['Duration'].sum()/len(events_raw['Date'].unique())
+    w_average = events['Duration'].sum()/len(events_raw['Week'].unique())
+    m_average = events['Duration'].sum()/len(events_raw['Month'].unique())
+    data = pd.DataFrame(dict(
         number=[m_average, w_average, d_average],
         name=['Monthly', 'Weekly', 'Daily']
-    )
-    fun = px.funnel(data, x='number', y='name', template=chart_template)
+    ))
+    data['number'] = data['number'].astype(int)
+    fun = px.funnel(data, x='number', y='name', template=chart_template) #, color='Calendar', color_discrete_map=COLORS)
     return bars, pie, rank, box, fun
 
 
