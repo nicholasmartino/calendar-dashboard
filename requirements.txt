@@ -1,64 +1,39 @@
-# This file may be used to create an environment using:
-# $ conda create --name <env> --file <this file>
-# platform: osx-64
-brotli-python=1.0.9=py37hd8d24ac_6
-brotlipy=0.7.0=py37h271585c_1003
-ca-certificates=2021.10.8=h033912b_0
-certifi=2021.10.8=py37hf985489_1
-cffi=1.14.6=py37h2125817_0
-chardet=4.0.0=py37hf985489_2
-charset-normalizer=2.0.0=pyhd8ed1ab_0
-click=8.0.3=py37hf985489_1
-colorama=0.4.4=pyh9f0ad1d_0
-cryptography=35.0.0=py37h5e77fcc_2
-dash=2.0.0=pyhd8ed1ab_0
-dash-bootstrap-components=1.0.0=pyhd8ed1ab_0
-dash-core-components=2.0.0=pyhd8ed1ab_0
-dash-html-components=2.0.0=pyhd8ed1ab_0
-dataclasses=0.8=pyhc8e2a94_3
-flask=2.0.2=pyhd8ed1ab_0
-flask-compress=1.10.1=pyhd8ed1ab_0
-icalendar=4.0.9=pyhd8ed1ab_0
-idna=3.1=pyhd3deb0d_0
-importlib-metadata=4.8.2=py37hf985489_0
-itsdangerous=2.0.1=pyhd8ed1ab_0
-jinja2=3.0.2=pyhd8ed1ab_0
-libblas=3.9.0=12_osx64_openblas
-libcblas=3.9.0=12_osx64_openblas
-libcxx=12.0.0=h2f01273_0
-libffi=3.3=hb1e8313_2
-libgfortran=5.0.0=9_3_0_h6c81a4c_23
-libgfortran5=9.3.0=h6c81a4c_23
-liblapack=3.9.0=12_osx64_openblas
-libopenblas=0.3.18=openmp_h3351f45_0
-llvm-openmp=12.0.1=hda6cdc1_1
-markupsafe=2.0.1=py37h271585c_1
-ncurses=6.3=hca72f7f_1
-numpy=1.21.4=py37haefe36b_0
-openssl=1.1.1l=h0d85af4_0
-pandas=1.3.4=py37h5b83a90_1
-pip=21.0.1=py37hecd8cb5_0
-plotly=5.3.1=pyhd8ed1ab_0
-pycparser=2.21=pyhd8ed1ab_0
-pyopenssl=21.0.0=pyhd8ed1ab_0
-pysocks=1.7.1=py37hf985489_4
-python=3.7.11=h88f2d9e_0
-python-dateutil=2.8.2=pyhd8ed1ab_0
-python_abi=3.7=2_cp37m
-pytz=2021.3=pyhd8ed1ab_0
-readline=8.1=h9ed2024_0
-recurring-ical-events=0.2.0b0=pypi_0
-requests=2.26.0=pyhd8ed1ab_0
-setuptools=58.0.4=py37hecd8cb5_0
-six=1.16.0=pyh6c4a22f_0
-sqlite=3.36.0=hce871da_0
-tenacity=8.0.1=pyhd8ed1ab_0
-tk=8.6.11=h7bc2e8c_0
-tqdm=4.62.3=pyhd8ed1ab_0
-typing_extensions=3.10.0.2=pyha770c72_0
-urllib3=1.26.7=pyhd8ed1ab_0
-werkzeug=2.0.1=pyhd8ed1ab_0
-wheel=0.37.0=pyhd3eb1b0_1
-xz=5.2.5=h1de35cc_0
-zipp=3.6.0=pyhd8ed1ab_0
-zlib=1.2.11=h1de35cc_3
+Brotli @ file:///Users/runner/miniforge3/conda-bld/brotli-split_1635845996591/work
+brotlipy @ file:///Users/runner/miniforge3/conda-bld/brotlipy_1636012552952/work
+certifi==2021.10.8
+cffi @ file:///opt/concourse/worker/volumes/live/4a8f7628-1917-402a-5a6a-cdafcc3ec547/volume/cffi_1625814707380/work
+chardet @ file:///Users/runner/miniforge3/conda-bld/chardet_1635814956906/work
+charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1626371162869/work
+click @ file:///Users/runner/miniforge3/conda-bld/click_1635822905085/work
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1602866480661/work
+cryptography @ file:///Users/runner/miniforge3/conda-bld/cryptography_1636040748078/work
+dash @ file:///home/conda/feedstock_root/build_artifacts/dash_1632235402030/work
+dash-bootstrap-components @ file:///home/conda/feedstock_root/build_artifacts/dash-bootstrap-components_1634714739493/work
+dash-core-components @ file:///home/conda/feedstock_root/build_artifacts/dash-core-components_1632311995097/work
+dash-html-components @ file:///home/conda/feedstock_root/build_artifacts/dash-html-components_1632395620759/work
+dataclasses @ file:///home/conda/feedstock_root/build_artifacts/dataclasses_1628958434797/work
+Flask @ file:///home/conda/feedstock_root/build_artifacts/flask_1633384704162/work
+Flask-Compress @ file:///home/conda/feedstock_root/build_artifacts/flask-compress_1623842138238/work
+icalendar @ file:///home/conda/feedstock_root/build_artifacts/icalendar_1635697978555/work
+idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1609836280497/work
+importlib-metadata @ file:///Users/runner/miniforge3/conda-bld/importlib-metadata_1636431629957/work
+itsdangerous @ file:///home/conda/feedstock_root/build_artifacts/itsdangerous_1621360792037/work
+Jinja2 @ file:///home/conda/feedstock_root/build_artifacts/jinja2_1633656206378/work
+MarkupSafe @ file:///Users/runner/miniforge3/conda-bld/markupsafe_1635833657828/work
+numpy @ file:///Users/runner/miniforge3/conda-bld/numpy_1636145681404/work
+pandas==1.3.4
+plotly @ file:///home/conda/feedstock_root/build_artifacts/plotly_1630471917451/work
+pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1636257122734/work
+pyOpenSSL @ file:///home/conda/feedstock_root/build_artifacts/pyopenssl_1633192417276/work
+PySocks @ file:///Users/runner/miniforge3/conda-bld/pysocks_1635862517014/work
+python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1633452062248/work
+recurring-ical-events==0.2.0b0
+requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1626393743643/work
+six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
+tenacity @ file:///home/conda/feedstock_root/build_artifacts/tenacity_1626090218611/work
+tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1632160078689/work
+typing-extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1632313171031/work
+urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1632350318291/work
+Werkzeug @ file:///home/conda/feedstock_root/build_artifacts/werkzeug_1621518206714/work
+zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1633302054558/work
