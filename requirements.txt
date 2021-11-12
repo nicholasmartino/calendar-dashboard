@@ -1,7 +1,6 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: osx-64
-brotli-python==1.0.9
 brotlipy==0.7.0
 ca-certificates==2021.10.8
 certifi==2021.10.8
