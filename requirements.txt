@@ -13,7 +13,6 @@ dash==2.0.0
 dash-bootstrap-components==1.0.0
 dash-core-components==2.0.0
 dash-html-components==2.0.0
-dataclasses==0.8
 flask==2.0.2
 flask-compress==1.10.1
 icalendar==4.0.9
