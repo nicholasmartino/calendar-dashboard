@@ -124,8 +124,7 @@ def update_output_div(agg_by, ts):
     events['Date'] = grouped.agg({'Date': 'first'})['Date']
     events['Theme'] = events['Calendar'].replace(THEMES)
     events['Time'] = 'Time'
-    events['Goal'] = events['Calendar'].replace(GOAL)
-    events['Change'] = (events['Duration'] - events['Goal'])/events['Goal']
+
     events = events.sort_values('Date').reset_index(drop=True)
     cal_events = events.copy().groupby('Calendar', as_index=False).sum().sort_values('Duration', ascending=False)
     cal_events[agg_by] = events.copy().groupby('Calendar', as_index=False).count()[agg_by]
@@ -157,7 +156,10 @@ def update_output_div(agg_by, ts):
     rank.update_traces(marker={"opacity": 0.4})
 
     # Box plot
-    box = px.box(events, x='Calendar', y='Change', color='Calendar',
+    box_df = events_raw.groupby(['Week', 'Calendar'], as_index=False).agg({'Week': 'mean', 'Duration': 'sum'})
+    box_df['Goal'] = box_df['Calendar'].replace(GOAL)
+    box_df['Change'] = (box_df['Duration'] - box_df['Goal'])/box_df['Goal']
+    box = px.box(box_df, x='Calendar', y='Change', color='Calendar',
                  template=chart_template, color_discrete_map=COLORS)
     box.update_layout(showlegend=False)
 
