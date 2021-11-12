@@ -78,12 +78,9 @@ app.layout = \
                 dcc.Graph(id='calendar_rank', style={"height": "100%"}),
             ]),
             dbc.Col(width=3, style={"height": "80%"}, children=[
-                dbc.Row([
-                    html.Div(id='daily_average', style=text_style),
-                    html.Div(style={"height": "3vh"}),
-                    html.Div(id='weekly_average', style=text_style),
+                dbc.Row(style={'height': '90%'}, children=[
+                    dcc.Graph(id='funnel_chart'),
                 ]),
-                html.Div(style={"height": "8vh"}),
                 dbc.Row([
                     dbc.Col([
                         dcc.Dropdown(id='time_scale', options=ts_op, value='q'),
@@ -102,8 +99,7 @@ app.layout = \
     Output(component_id='sunburst_chart', component_property='figure'),
     Output(component_id='calendar_rank', component_property='figure'),
     Output(component_id='radar_chart', component_property='figure'),
-    Output(component_id='daily_average', component_property='children'),
-    Output(component_id='weekly_average', component_property='children'),
+    Output(component_id='funnel_chart', component_property='figure'),
     [Input(component_id='agg_by', component_property='value'),
      Input(component_id='time_scale', component_property='value')]
 )
@@ -163,9 +159,16 @@ def update_output_div(agg_by, ts):
                  template=chart_template, color_discrete_map=COLORS)
     box.update_layout(showlegend=False)
 
-    d_average = f"{int(events['Duration'].sum()/len(events_raw['Date'].unique()))}h/day"
-    w_average = f"{(int(events['Duration'].sum()/len(events_raw[agg_by].unique())))}h/{agg_by}"
-    return bars, pie, rank, box, d_average, w_average
+    # Funnel chart
+    d_average = int(events['Duration'].sum()/len(events_raw['Date'].unique()))
+    w_average = int(events['Duration'].sum()/len(events_raw['Week'].unique()))
+    m_average = int(events['Duration'].sum()/len(events_raw['Month'].unique()))
+    data = dict(
+        number=[m_average, w_average, d_average],
+        name=['Monthly', 'Weekly', 'Daily']
+    )
+    fun = px.funnel(data, x='number', y='name', template=chart_template)
+    return bars, pie, rank, box, fun
 
 
 if __name__ == '__main__':
