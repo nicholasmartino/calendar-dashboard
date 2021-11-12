@@ -54,6 +54,8 @@ chart_template = dict(
 )
 text_style = {'height': '20%', 'text-align': 'left', 'position': 'relative', 'top': '20%',
               'font-size': 'x-large', 'font-weight': 'bold', 'font-family': 'Roboto', 'color': 'gray'}
+agg_op = [{'label': 'Day', 'value': 'd'}, {'label': 'Week', 'value': 'w'}, {'label': 'Month', 'value': 'm'}]
+ts_op = [{'label': 'Quarter', 'value': 'q'}, {'label': 'YTD', 'value': 'ytd'}]
 
 app = dash.Dash(external_stylesheets=[dbc.themes.YETI])
 app.layout = \
@@ -75,11 +77,21 @@ app.layout = \
             dbc.Col(width=4, style={"height": "80%"}, children=[
                 dcc.Graph(id='calendar_rank', style={"height": "100%"}),
             ]),
-            dbc.Col(width=2, style={"height": "80%"}, children=[
-                dcc.Dropdown(id='agg_by', style={"width": "66%"}, options=[{'label': 'Week', 'value': 'Week'}],
-                             value='Week'),
-                html.Div(id='daily_average', style=text_style),
-                html.Div(id='weekly_average', style=text_style),
+            dbc.Col(width=3, style={"height": "80%"}, children=[
+                dbc.Row([
+                    html.Div(id='daily_average', style=text_style),
+                    html.Div(style={"height": "3vh"}),
+                    html.Div(id='weekly_average', style=text_style),
+                ]),
+                html.Div(style={"height": "8vh"}),
+                dbc.Row([
+                    dbc.Col([
+                        dcc.Dropdown(id='time_scale', options=ts_op, value='q'),
+                    ]),
+                    dbc.Col([
+                        dcc.Dropdown(id='agg_by', options=agg_op, value='w'),
+                    ]),
+                ]),
             ])
         ])
     ])
@@ -92,17 +104,31 @@ app.layout = \
     Output(component_id='radar_chart', component_property='figure'),
     Output(component_id='daily_average', component_property='children'),
     Output(component_id='weekly_average', component_property='children'),
-    [Input(component_id='agg_by', component_property='value')]
+    [Input(component_id='agg_by', component_property='value'),
+     Input(component_id='time_scale', component_property='value')]
 )
-def update_output_div(agg_by):
-    events_raw = get_events_from_calendars(CALENDARS)
-    events = events_raw.sort_values(agg_by).groupby([agg_by, 'Calendar'], as_index=False).sum()
+def update_output_div(agg_by, ts):
+
+    if ts == 'Quarter':
+        start = (datetime.datetime.now().year, 9, 1)
+        end = (datetime.datetime.now().year, 12, 31)
+    else:
+        start = (datetime.datetime.now().year, 1, 1)
+        end = (datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day)
+
+    events_raw = get_events_ics(names=[k for k in CALENDARS.keys()], urls=[u for u in CALENDARS.values()],
+                                start=start, end=end)
+    agg_by = [i['label'] for i in agg_op if i['value'] == agg_by][0]
+    grouped = events_raw.groupby([agg_by, 'Calendar'], as_index=False)
+    events = grouped.sum()
+    events['Date'] = grouped.agg({'Date': 'first'})['Date']
     events['Theme'] = events['Calendar'].replace(THEMES)
     events['Time'] = 'Time'
     events['Goal'] = events['Calendar'].replace(GOAL)
     events['Change'] = (events['Duration'] - events['Goal'])/events['Goal']
-    cal_events = events.groupby('Calendar', as_index=False).sum().sort_values('Duration', ascending=False)
-    cal_events['Week'] = events.groupby('Calendar', as_index=False).count()['Week']
+    events = events.sort_values('Date').reset_index(drop=True)
+    cal_events = events.copy().groupby('Calendar', as_index=False).sum().sort_values('Duration', ascending=False)
+    cal_events[agg_by] = events.copy().groupby('Calendar', as_index=False).count()[agg_by]
     total = f"{int(events['Duration'].sum())}h"
 
     # Pie chart
@@ -116,7 +142,11 @@ def update_output_div(agg_by):
     pie.update_traces(hole=0.8)
 
     # Stacked bar chart
-    bars = px.bar(events, x='Week', y='Duration', color='Calendar',
+    if agg_by == 'Day':
+        x = 'Date'
+    else:
+        x = agg_by
+    bars = px.bar(events, x=x, y='Duration', color='Calendar',
                   template=chart_template, color_discrete_map=COLORS)
     bars.update_traces(marker={"opacity": 0.4})
 
@@ -131,18 +161,8 @@ def update_output_div(agg_by):
                  template=chart_template, color_discrete_map=COLORS)
     box.update_layout(showlegend=False)
 
-    # Polar chart
-    events['Week'] = [f"W{int(w)}" for w in events['Week']]
-    for week in events['Week'].unique():
-        events.loc[len(events), ['Calendar', 'Change', 'Week']] = ['Benchmark', 1, week]
-    events = events.sort_values('Week')
-    radar = px.line_polar(events, r='Change', theta='Week', color='Calendar', line_close=True,
-                          template=chart_template, color_discrete_map=COLORS, title="Benchmark")
-    radar.update_layout(showlegend=False, margin=dict(l=40, r=40, t=80, b=40))
-    radar.update_traces(marker={'opacity': 0.4})
-
     d_average = f"{int(events['Duration'].sum()/len(events_raw['Date'].unique()))}h/day"
-    w_average = f"{(int(events['Duration'].sum()/len(events_raw['Date'].unique()))) * 5}h/week"
+    w_average = f"{(int(events['Duration'].sum()/len(events_raw[agg_by].unique())))}h/{agg_by}"
     return bars, pie, rank, box, d_average, w_average
 
 
