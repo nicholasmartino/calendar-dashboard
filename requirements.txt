@@ -20,7 +20,6 @@ idna==3.1
 importlib-metadata==4.8.2
 itsdangerous==2.0.1
 jinja2==3.0.2
-libcblas==3.9.0
 libcxx==12.0.0
 libffi==3.3
 libgfortran==5.0.0
