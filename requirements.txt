@@ -34,7 +34,6 @@ recurring-ical-events==0.2.0b0
 requests==2.26.0
 setuptools==58.0.4
 six==1.16.0
-sqlite==3.36.0
 tenacity==8.0.1
 tk==8.6.11
 tqdm==4.62.3
