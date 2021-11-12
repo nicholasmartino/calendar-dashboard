@@ -129,6 +129,7 @@ def update_output_div(agg_by):
     # Box plot
     box = px.box(events, x='Calendar', y='Change', color='Calendar',
                  template=chart_template, color_discrete_map=COLORS)
+    box.update_layout(showlegend=False)
 
     # Polar chart
     events['Week'] = [f"W{int(w)}" for w in events['Week']]
