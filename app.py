@@ -36,9 +36,9 @@ GOAL = {
     'PhD': 8,
     'MITACS': 8,
     'elementslab': 10,
-    'TA': 5,
+    'TA': 4,
     'UPAL': 1,
-    'Portfolio': 2
+    'Portfolio': 8
 }
 
 chart_template = dict(
@@ -57,6 +57,7 @@ agg_op = [{'label': 'Day', 'value': 'd'}, {'label': 'Week', 'value': 'w'}, {'lab
 ts_op = [{'label': l, 'value': v} for l, v in {'YTD': 'ytd', 'Quarter': 'q', '7 Days': '7d', '30 Days': '30d'}.items()]
 
 app = dash.Dash(external_stylesheets=[dbc.themes.YETI])
+app.title = "Calendars"
 app.layout = \
     html.Div(style={"height": "98vh", "width": "98vw"}, children=[
         dbc.Row(class_name='h-50', children=[
@@ -162,8 +163,9 @@ def update_output_div(agg_by, ts):
     box_df = events_raw.groupby(['Week', 'Calendar'], as_index=False).agg({'Week': 'mean', 'Duration': 'sum'})
     box_df['Goal'] = box_df['Calendar'].replace(GOAL)
     box_df['Change'] = (box_df['Duration']/box_df['Goal']) - 1
-    box = px.box(box_df, x='Calendar', y='Change', color='Calendar',
+    box = px.box(box_df, x='Calendar', y='Change', color='Calendar', points=False,
                  template=chart_template, color_discrete_map=COLORS)
+    box.update_traces(boxmean=True)
     box.update_layout(showlegend=False)
 
     # Funnel chart
@@ -180,4 +182,4 @@ def update_output_div(agg_by, ts):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False, host='localhost', port=9050)
+    app.run_server()

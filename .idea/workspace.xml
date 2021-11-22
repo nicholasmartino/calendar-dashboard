@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7072146-4642-47e2-bc03-fcc7f48ca611" name="Default Changelist" comment="" />
+    <list default="true" id="d7072146-4642-47e2-bc03-fcc7f48ca611" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/calendar-dashboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/calendar-dashboard.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calendar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calendar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime.txt" beforeDir="false" afterPath="$PROJECT_DIR$/runtime.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +34,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -63,6 +75,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -78,74 +91,5 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="320" y="96" key="#Notifications" timestamp="1636516085213">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state x="320" y="96" key="#Notifications/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636503360430" />
-    <state x="320" y="96" key="#Notifications/0.25.1440.817@0.25.1440.817" timestamp="1636516085213" />
-    <state x="184" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1636503651170">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state x="184" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636503651170" />
-    <state x="624" y="235" width="517" height="205" key="Github.ShareDialog" timestamp="1636517374818">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state x="624" y="235" width="517" height="205" key="Github.ShareDialog/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636504651776" />
-    <state x="624" y="235" key="Github.ShareDialog/0.25.1440.817@0.25.1440.817" timestamp="1636517374818" />
-    <state width="1419" height="259" key="GridCell.Tab.0.bottom" timestamp="1636746506645">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1419" height="259" key="GridCell.Tab.0.bottom/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636746506645" />
-    <state width="1419" height="259" key="GridCell.Tab.0.bottom/0.25.1440.817@0.25.1440.817" timestamp="1636700056478" />
-    <state width="1419" height="259" key="GridCell.Tab.0.center" timestamp="1636746506644">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1419" height="259" key="GridCell.Tab.0.center/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636746506644" />
-    <state width="1419" height="259" key="GridCell.Tab.0.center/0.25.1440.817@0.25.1440.817" timestamp="1636700056476" />
-    <state width="1419" height="259" key="GridCell.Tab.0.left" timestamp="1636746506642">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1419" height="259" key="GridCell.Tab.0.left/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636746506642" />
-    <state width="1419" height="259" key="GridCell.Tab.0.left/0.25.1440.817@0.25.1440.817" timestamp="1636700056476" />
-    <state width="1419" height="259" key="GridCell.Tab.0.right" timestamp="1636746506644">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1419" height="259" key="GridCell.Tab.0.right/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636746506644" />
-    <state width="1419" height="259" key="GridCell.Tab.0.right/0.25.1440.817@0.25.1440.817" timestamp="1636700056477" />
-    <state width="1419" height="259" key="GridCell.Tab.1.bottom" timestamp="1636746506647">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1419" height="259" key="GridCell.Tab.1.bottom/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636746506647" />
-    <state width="1419" height="259" key="GridCell.Tab.1.bottom/0.25.1440.817@0.25.1440.817" timestamp="1636700056479" />
-    <state width="1419" height="259" key="GridCell.Tab.1.center" timestamp="1636746506646">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1419" height="259" key="GridCell.Tab.1.center/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636746506646" />
-    <state width="1419" height="259" key="GridCell.Tab.1.center/0.25.1440.817@0.25.1440.817" timestamp="1636700056479" />
-    <state width="1419" height="259" key="GridCell.Tab.1.left" timestamp="1636746506646">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1419" height="259" key="GridCell.Tab.1.left/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636746506646" />
-    <state width="1419" height="259" key="GridCell.Tab.1.left/0.25.1440.817@0.25.1440.817" timestamp="1636700056478" />
-    <state width="1419" height="259" key="GridCell.Tab.1.right" timestamp="1636746506647">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1419" height="259" key="GridCell.Tab.1.right/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636746506647" />
-    <state width="1419" height="259" key="GridCell.Tab.1.right/0.25.1440.817@0.25.1440.817" timestamp="1636700056479" />
-    <state x="229" y="69" key="SettingsEditor" timestamp="1636503374993">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state x="229" y="69" key="SettingsEditor/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636503374993" />
-    <state x="285" y="174" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1636697542869">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state x="285" y="174" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.25.1440.817@0.25.1440.817" timestamp="1636697542869" />
-    <state x="386" y="166" width="670" height="676" key="search.everywhere.popup" timestamp="1636745935408">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state x="386" y="166" width="670" height="676" key="search.everywhere.popup/0.25.1440.817/1440.25.1920.1055@0.25.1440.817" timestamp="1636745935408" />
-    <state x="386" y="166" width="670" height="676" key="search.everywhere.popup/0.25.1440.817@0.25.1440.817" timestamp="1636688417122" />
   </component>
 </project>
