@@ -1,17 +1,16 @@
+import datetime
+
 import dash
 import dash_bootstrap_components as dbc
+import icalendar
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import recurring_ical_events
+import requests
 from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
-
-import datetime
-
-import icalendar
-import pandas as pd
-import recurring_ical_events
-import requests
 
 
 def get_events_ics(names, urls, start, end, verbose=True):
