@@ -1,6 +1,5 @@
 import datetime
 
-import dash
 import dash_bootstrap_components as dbc
 import icalendar
 import pandas as pd
@@ -11,6 +10,9 @@ import requests
 from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
+
+from app import app
+from app import server
 
 
 def get_events_ics(names, urls, start, end, verbose=True):
@@ -99,7 +101,6 @@ text_style = {'height': '20%', 'text-align': 'left', 'position': 'relative', 'to
 agg_op = [{'label': 'Day', 'value': 'd'}, {'label': 'Week', 'value': 'w'}, {'label': 'Month', 'value': 'm'}]
 ts_op = [{'label': l, 'value': v} for l, v in {'YTD': 'ytd', 'Quarter': 'q', '7 Days': '7d', '30 Days': '30d'}.items()]
 
-app = dash.Dash(external_stylesheets=[dbc.themes.YETI])
 app.title = "Calendars"
 app.layout = \
     html.Div(style={"height": "98vh", "width": "98vw"}, children=[
