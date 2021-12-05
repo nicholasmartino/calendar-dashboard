@@ -213,7 +213,7 @@ def update_output_div(agg_by, ts):
     box.update_layout(showlegend=False)
 
     # Funnel chart
-    d_average = events['Duration'].sum()/len(events_raw['Date'].unique())
+    d_average = events['Duration'].sum()/(len(events_raw['Date'].unique()) * (5/7))
     w_average = events['Duration'].sum()/len(events_raw['Week'].unique())
     m_average = events['Duration'].sum()/len(events_raw['Month'].unique())
     data = pd.DataFrame(dict(
@@ -226,4 +226,4 @@ def update_output_div(agg_by, ts):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='localhost', port=9000)
+    app.run_server(debug=True, host='localhost', port=9001)
