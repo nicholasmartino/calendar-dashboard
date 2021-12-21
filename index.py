@@ -56,10 +56,11 @@ def get_events_ics(names, urls, start, end, verbose=True):
 CALENDARS = {
     'PhD': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/d13b4415-57b7-4152-89ef-6f707880cccd/cid-59D903F0133C1A64/calendar.ics',
     'MITACS': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/de8b5359-dacc-4030-a70e-f8cb020cdc7a/cid-59D903F0133C1A64/calendar.ics',
-    'TA': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/9121c110-4043-49ef-a0ce-3018a3670c1f/cid-59D903F0133C1A64/calendar.ics',
+    'TA Fall': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/9121c110-4043-49ef-a0ce-3018a3670c1f/cid-59D903F0133C1A64/calendar.ics',
     'UPAL': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/666b5775-d4a8-48f8-bb5b-b08bdfa9c2cc/cid-59D903F0133C1A64/calendar.ics',
     'elementslab': 'https://outlook.live.com/owa/calendar/8fd2720a-5774-41df-90e9-fa8ff7cc3cbf/1b14feb2-a841-4f74-ae70-496436c6da96/cid-59D903F0133C1A64/calendar.ics',
     'Portfolio': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/491714b4-dc60-421d-9cf7-cb2f1eaf2b0f/cid-59D903F0133C1A64/calendar.ics',
+    'TA Winter': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/31ce62b1-d87f-4b9e-a3ac-1faabb505f38/cid-59D903F0133C1A64/calendar.ics'
 }
 COLORS = {
     'PhD': 'cadetblue',
