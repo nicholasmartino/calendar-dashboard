@@ -65,26 +65,29 @@ CALENDARS = {
 COLORS = {
     'PhD': 'cadetblue',
     'MITACS': 'teal',
-    'TA': 'mediumseagreen',
+    'TA Fall': 'mediumseagreen',
     'UPAL': 'Lime',
     'elementslab': 'gold',
     'Portfolio': 'mediumpurple',
+    'TA Winter': 'firebrick'
 }
 THEMES = {
     'PhD': 'Research',
     'MITACS': 'Research',
     'elementslab': 'Research',
-    'TA': 'Teaching',
+    'TA Fall': 'Teaching',
     'UPAL': '',
-    'Portfolio': ''
+    'Portfolio': '',
+    'TA Winter': 'Teaching'
 }
 GOAL = {
     'PhD': 8,
     'MITACS': 8,
     'elementslab': 10,
-    'TA': 4,
+    'TA Fall': 4,
     'UPAL': 1,
-    'Portfolio': 8
+    'Portfolio': 8,
+    'TA Winter': 2
 }
 
 chart_template = dict(
