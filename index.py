@@ -108,24 +108,10 @@ ts_op = [{'label': l, 'value': v} for l, v in {'YTD': 'ytd', 'Quarter': 'q', '7 
 app.title = "Calendars"
 app.layout = \
     html.Div(style={"height": "98vh", "width": "98vw"}, children=[
-        dbc.Row(class_name='h-50', children=[
+
+        dbc.Row(class_name='h-50', style={'margin-left': '8vw'}, children=[
             html.Div(style={"height": "5vh"}),
-            dbc.Col(width=9, style={"height": "100%"}, children=[
-                dcc.Graph(id='stacked_bars', style={"height": "100%"}),
-            ]),
             dbc.Col(width=3, style={"height": "100%"}, children=[
-                dcc.Graph(id='sunburst_chart', style={"height": "80%"}),
-            ])
-        ]),
-        dbc.Row(class_name='h-50', children=[
-            html.Div(style={"height": "5vh"}),
-            dbc.Col(width=5, style={"height": "80%"}, children=[
-                dcc.Graph(id='radar_chart', style={"height": "100%"})
-            ]),
-            dbc.Col(width=4, style={"height": "80%"}, children=[
-                dcc.Graph(id='calendar_rank', style={"height": "100%"}),
-            ]),
-            dbc.Col(width=3, style={"height": "80%"}, children=[
                 dbc.Row([
                     dbc.Col([
                         dcc.Dropdown(id='time_scale', options=ts_op, value='ytd'),
@@ -134,10 +120,28 @@ app.layout = \
                         dcc.Dropdown(id='agg_by', options=agg_op, value='w'),
                     ]),
                 ]),
+                html.Div(style={"height": "5vh"}),
+                dcc.Graph(id='sunburst_chart', style={"height": "80%"}),
+            ]),
+            dbc.Col(width=8, style={"height": "100%"}, children=[
+                dcc.Graph(id='stacked_bars', style={"height": "100%"}),
+            ]),
+        ]),
+
+        dbc.Row(class_name='h-50', style={'margin-left': '8vw'}, children=[
+            html.Div(style={"height": "5vh"}),
+            dbc.Col(width=3, style={"height": "80%"}, children=[
                 dbc.Row(style={'height': '90%'}, children=[
                     dcc.Graph(id='funnel_chart'),
                 ]),
-            ])
+            ]),
+            dbc.Col(width=4, style={"height": "80%"}, children=[
+                dcc.Graph(id='radar_chart', style={"height": "100%"})
+            ]),
+            dbc.Col(width=4, style={"height": "80%"}, children=[
+                dcc.Graph(id='calendar_rank', style={"height": "100%"}),
+            ]),
+
         ])
     ])
 
