@@ -60,7 +60,8 @@ CALENDARS = {
     'UPAL': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/666b5775-d4a8-48f8-bb5b-b08bdfa9c2cc/cid-59D903F0133C1A64/calendar.ics',
     'elementslab': 'https://outlook.live.com/owa/calendar/8fd2720a-5774-41df-90e9-fa8ff7cc3cbf/1b14feb2-a841-4f74-ae70-496436c6da96/cid-59D903F0133C1A64/calendar.ics',
     'Portfolio': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/491714b4-dc60-421d-9cf7-cb2f1eaf2b0f/cid-59D903F0133C1A64/calendar.ics',
-    'TA Winter': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/31ce62b1-d87f-4b9e-a3ac-1faabb505f38/cid-59D903F0133C1A64/calendar.ics'
+    'TA Winter': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/31ce62b1-d87f-4b9e-a3ac-1faabb505f38/cid-59D903F0133C1A64/calendar.ics',
+    'Proptech': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/d10fa344-e4a3-43af-afa3-04b8f5894668/cid-59D903F0133C1A64/calendar.ics'
 }
 COLORS = {
     'PhD': 'cadetblue',
@@ -69,7 +70,8 @@ COLORS = {
     'UPAL': 'Lime',
     'elementslab': 'gold',
     'Portfolio': 'mediumpurple',
-    'TA Winter': 'firebrick'
+    'TA Winter': 'firebrick',
+    'Proptech': 'navyblue'
 }
 THEMES = {
     'PhD': 'Research',
@@ -78,7 +80,8 @@ THEMES = {
     'TA Fall': 'Teaching',
     'UPAL': '',
     'Portfolio': '',
-    'TA Winter': 'Teaching'
+    'TA Winter': 'Teaching',
+    'Proptech': 'Practice'
 }
 GOAL = {
     'PhD': 8,
@@ -87,7 +90,8 @@ GOAL = {
     'TA Fall': 4,
     'UPAL': 1,
     'Portfolio': 8,
-    'TA Winter': 2
+    'TA Winter': 2,
+    'Proptech': 10
 }
 
 chart_template = dict(
