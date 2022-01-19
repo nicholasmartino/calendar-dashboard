@@ -71,7 +71,7 @@ COLORS = {
     'elementslab': 'gold',
     'Portfolio': 'mediumpurple',
     'TA Winter': 'firebrick',
-    'Proptech': 'navyblue'
+    'Proptech': 'navy'
 }
 THEMES = {
     'PhD': 'Research',
