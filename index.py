@@ -62,6 +62,7 @@ CALENDARS = {
     'Portfolio': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/491714b4-dc60-421d-9cf7-cb2f1eaf2b0f/cid-59D903F0133C1A64/calendar.ics',
     'TA Winter': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/31ce62b1-d87f-4b9e-a3ac-1faabb505f38/cid-59D903F0133C1A64/calendar.ics',
     'Proptech': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/d10fa344-e4a3-43af-afa3-04b8f5894668/cid-59D903F0133C1A64/calendar.ics',
+    'Job Search': 'https://outlook.live.com/owa/calendar/00000000-0000-0000-0000-000000000000/eab36438-7031-4b7d-974f-a2f258f4a994/cid-59D903F0133C1A64/calendar.ics',
 }
 COLORS = {
     'PhD': 'cadetblue',
@@ -72,6 +73,7 @@ COLORS = {
     'Portfolio': 'mediumpurple',
     'TA Winter': 'firebrick',
     'Proptech': 'navy',
+    'Job Search': 'violet'
 }
 THEMES = {
     'PhD': 'Education',
@@ -82,6 +84,7 @@ THEMES = {
     'Portfolio': '',
     'TA Winter': 'Education',
     'Proptech': 'Real Estate',
+    'Job Search': ''
 }
 GOAL = {
     'PhD': 8,  # Data Science
@@ -92,6 +95,7 @@ GOAL = {
     'Portfolio': 5,
     'TA Winter': 2,
     'Proptech': 10,  # Full Stack
+    'Job Search': 5
 }
 
 chart_template = dict(
