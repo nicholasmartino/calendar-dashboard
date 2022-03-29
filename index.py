@@ -180,6 +180,14 @@ def update_output_div(agg_by, ts):
         start = datetime.datetime.now().date() - datetime.timedelta(30)
         start = (start.year, start.month, start.day)
         end = (datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day)
+    elif ts == '1Y':
+        start = datetime.datetime.now().date() - datetime.timedelta(365)
+        start = (start.year, start.month, start.day)
+        end = (datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day)
+    elif ts == '5Y':
+        start = datetime.datetime.now().date() - datetime.timedelta(365 * 5)
+        start = (start.year, start.month, start.day)
+        end = (datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day)
     else:
         start = (datetime.datetime.now().year, 1, 1)
         end = (datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day)
