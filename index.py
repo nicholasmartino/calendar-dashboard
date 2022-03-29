@@ -115,7 +115,14 @@ chart_template = dict(
 text_style = {'height': '20%', 'text-align': 'left', 'position': 'relative', 'top': '20%',
               'font-size': 'x-large', 'font-weight': 'bold', 'font-family': 'Roboto', 'color': 'gray'}
 agg_op = [{'label': 'Day', 'value': 'd'}, {'label': 'Week', 'value': 'w'}, {'label': 'Month', 'value': 'm'}]
-ts_op = [{'label': l, 'value': v} for l, v in {'YTD': 'ytd', 'Quarter': 'q', '7 Days': '7d', '30 Days': '30d'}.items()]
+ts_op = [{'label': l, 'value': v} for l, v in {
+    '5 Years': '5Y',
+    '2 Years': '2Y',
+    'YTD': 'ytd',
+    'Quarter': 'q',
+    '7 Days': '7d',
+    '30 Days': '30d',
+}.items()]
 
 app.title = "Calendars"
 app.layout = \
